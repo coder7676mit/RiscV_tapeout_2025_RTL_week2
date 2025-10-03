@@ -56,7 +56,7 @@ pip install pyyaml click sandpiper-saas
 # Step 4: Convert rvmyth.tlv to Verilog
 sandpiper-saas -i ./src/module/*.tlv -o rvmyth.v --bestsv --noline -p verilog --outdir ./src/module/
 ```
- ![Alt Text](Images/1.png)
+ ![Alt Text](../LABS/Screenshot from 2025-09-30 17-49-38.png)
 
 ✅ After running the above command, rvmyth.v will be generated in the src/module/ directory.
 
