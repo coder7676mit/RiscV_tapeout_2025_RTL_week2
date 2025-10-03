@@ -185,13 +185,13 @@ Here is the step-by-step execution plan for running the  commands manually:
 ```bash
 spatha@spatha-VirtualBox:~/VLSI/VSDBabySoC$ yosys
 ```
- ![Alt Text](Images/today1.jpg)
+
  
 - Read the main vsdbabysoc.v RTL file into the yosys environment.
 ```bash
 yosys> read_verilog src/module/vsdbabysoc.v 
 ```
- ![Alt Text](Images/today2.jpg)
+ 
 
 - The following cp commands copy essential header files from the src/include directory into the working directory. These include:
 
@@ -245,7 +245,7 @@ yosys> read_liberty -lib ~/VLSI/VSDBabySoC/src/lib/sky130_fd_sc_hd__tt_025C_1v80
 ```bash
 yosys> synth -top vsdbabysoc
 ```
-![Alt Text](Images/5.jpg)
+![Alt Text](design_hierarchy.png)
 
 
 ### **Step 4: Map D Flip-Flops to Standard Cells**
@@ -300,14 +300,14 @@ yosys> rename -enumerate
 yosys> show vsdbabyso
 ```
 
-![alt](post_synth_yosys.png)
+![alt](vsdbabysoc_synth2.png)
 
 
 ``` bash
 yosys> show clk_gate
 ```
 
-![alt](clk_gate.png)
+![alt](clk_gate-synth.png)
 
 
 
