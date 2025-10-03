@@ -239,7 +239,7 @@ yosys> read_liberty -lib ~/VLSI/VSDBabySoC/src/lib/avsdpll.lib
 yosys> read_liberty -lib ~/VLSI/VSDBabySoC/src/lib/avsddac.lib 
 yosys> read_liberty -lib ~/VLSI/VSDBabySoC/src/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 ```
-![Alt Text](yosys_syntax.png)
+![Alt Text](yosys_synth.png)
 
 ### **Step 3: Run Synthesis Targeting `vsdbabysoc`**
 ```bash
