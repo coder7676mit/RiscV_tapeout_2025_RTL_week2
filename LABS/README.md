@@ -117,7 +117,7 @@ gtkwave output/pre_synth_sim/pre_synth_sim.vcd
 ```
 Drag and drop the CLK, reset, OUT (DAC), and RV TO DAC [9:0] signals to their respective locations in the simulation tool
 
- ![Alt Text](Images/today4.jpg)
+ ![Alt Text](../LABS/pre_synth_gtk.png)
 
 In this picture we can see the following signals:
 
@@ -137,9 +137,8 @@ This can be viewed by changing the Data Format of the signal to Analog → Step
 
 Drag and drop the CLK, reset, OUT (DAC) (as analog step), and RV TO DAC [9:0] signals to their respective locations in the simulation tool 
 
-![Alt Text](Images/today5.jpeg)
 
-![Alt Text](Images/today6.jpg)
+![Alt Text](pre_synth_analog.png)
 
 
 ### Trouble shooting tips
