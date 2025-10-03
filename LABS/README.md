@@ -159,6 +159,7 @@ Drag and drop the CLK, reset, OUT (DAC) (as analog step), and RV TO DAC [9:0] si
 
 ---
 
+#### <ins>Post-Synthesis Simulation</ins>
 
 Post-synthesis simulation is a critical step in the digital design flow, providing insights into both the functionality and timing of the synthesized design. 
 
