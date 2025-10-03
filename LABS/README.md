@@ -307,7 +307,7 @@ yosys> show vsdbabyso
 yosys> show clk_gate
 ```
 
-![alt](clk_gate-synth.png)
+![alt](clk_gate_synth.png)
 
 
 
