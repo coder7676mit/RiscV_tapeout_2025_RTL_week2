@@ -247,12 +247,13 @@ yosys> synth -top vsdbabysoc
 ```
 ![Alt Text](Images/5.jpg)
 
+
 ### **Step 4: Map D Flip-Flops to Standard Cells**
 
 ```bash
 yosys> dfflibmap -liberty ~/VLSI/VSDBabySoC/src/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 ```
-![Alt Text](dff_libmap.png)
+![Alt Text](dfflib_map.png)
 
 ### **Step 5: Perform Optimization and Technology Mapping**
 ```bash
@@ -271,7 +272,7 @@ yosys> abc -liberty ~/VLSI/VSDBabySoC/src/lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
 | `map,-M,1,{D}` | Map logic to gates minimizing area (`-M,1`) and retime-aware (`{D}`) |
 
 
-![Alt Text](optimization.png)
+![Alt Text](optimize.png)
 
 
 ### **Step 6: Perform Final Clean-Up and Renaming**
@@ -293,7 +294,24 @@ yosys> rename -enumerate
 ![Alt Text](clean.png)
 
 
+
 ### **Step 7: Check Statistics**
+```bash
+yosys> show vsdbabyso
+```
+
+![alt](post_synth_yosys.png)
+
+
+``` bash
+yosys> show clk_gate
+```
+
+![alt](clk_gate.png)
+
+
+
+### **Step 8: Check Statistics**
 ```bash
 yosys> stat
 ```
@@ -365,12 +383,12 @@ yosys> stat
      sky130_fd_sc_hd__xor2_1        32
 ```
 
-### **Step 8: Write the Synthesized Netlist**
+### **Step 9: Write the Synthesized Netlist**
 ```bash
 
 yosys> write_verilog -noattr ~/VLSI/VSDBabySoC/output/post_synth_sim/vsdbabysoc.synth.v
 ```
-![Alt Text](Images/15.jpg)
+
 
 ## POST_SYNTHESIS SIMULATION AND WAVEFORMS
 ---
@@ -421,7 +439,7 @@ _To resolve this : Update the syntax in the file sky130_fd_sc_hd.v at or around 
 ```bash
 `endif // SKY130_FD_SC_HD__LPFLOW_BLEEDER_FUNCTIONAL_V
 ```
-![Alt Text](Images/16.jpg)
+
 
 ---
 ### **Step 2: Navigate to the Post-Synthesis Simulation Output Directory**
@@ -441,8 +459,10 @@ cd output/post_synth_sim/
 gtkwave post_synth_sim.vcd
 ```
 ---
-![Alt Text](Images/17.jpg)
-![Alt Text](Images/today3.jpg)
+![Alt Text](post_synth.png)
+
+
+![Alt Text](post_synth_gtk.png)
 
 ## Comparing Pre-Synthesis and Post-Synthesis Output
 
@@ -450,9 +470,9 @@ To ensure that the synthesis process did not alter the original design behavior,
 
 Both simulations were run using GTKWave, and the resulting waveforms were observed.
 
-![Alt Text](https://github.com/spatha0011/spatha_vsd-hdp/blob/main/Day5/Images/today6.jpg)
+![Alt Text](pre_synth_analog.png)
 
-![Alt Text](Images/today3.jpg)
+![Alt Text](post_synth_gtk.png)
 
 ✅ _The outputs match exactly, confirming that the functionality is preserved across the synthesis flow._
 
