@@ -3,10 +3,6 @@
 ## Table of Contents
 1. [Introduction](#introduction)  
 2. [System-on-Chip Basics](#system-on-chip-basics)  
-   - [Definition](#definition)  
-   - [Core Components](#core-components)  
-   - [Advantages and Applications](#advantages-and-applications)  
-   - [Design Challenges](#design-challenges)  
 3. [SoC Architectures](#soc-architectures)  
 4. [SoC Design Flow](#soc-design-flow)  
 5. [VSDBabySoC](#vsdbabysoc)  
@@ -36,14 +32,17 @@ A system-on-chip is an integrated circuit that brings together the CPU, memory, 
 
 ### Core Components  
 
-| Component | Role in SoC |
-|-----------|-------------|
-| CPU | Executes instructions and manages the flow of operations within the system. |
-| Memory | Provides both temporary storage (RAM) and non-volatile storage (ROM, Flash) for program code and data. |
-| I/O Interfaces | Enable the SoC to communicate with the outside world through protocols like UART, SPI, I²C, or USB. |
-| GPU / DSP | The GPU accelerates graphical computations, while the DSP handles tasks such as audio and video signal processing. |
-| Power Management | Monitors and regulates power supply, ensuring energy-efficient operation and longer battery life in portable devices. |
-| Security / Networking | Provides encryption, secure boot, and connectivity features such as Wi-Fi or Bluetooth. |
+| Component   | Role in SoC                  | Conceptual Explanation     |
+|------|---------|----------|
+| CPU                   | Central processing unit      | Acts as the "brain" of the SoC, executing instructions, managing control flow, and coordinating between memory and peripherals. Its design (single-core, multi-core) defines system responsiveness. |
+| Memory                | Storage for instructions and data | Holds the programs and intermediate data. RAM enables fast temporary access, while ROM/Flash stores permanent code. The choice and size of memory affect system performance and application scope. |
+| I/O Interfaces        | Communication bridge         | Connects the SoC to external devices and sensors. Interfaces like UART, SPI, I²C, or GPIO ensure seamless data exchange and allow the SoC to interact with its environment. |
+| GPU / DSP             | Specialized processing units | GPUs accelerate visual computations, while DSPs handle audio, signal, or mathematical tasks efficiently. Offloading such operations from the CPU increases overall throughput. |
+| Power Management      | Energy regulator             | Ensures the SoC operates efficiently under varying workloads. Uses techniques like voltage regulation, clock gating, and power domains to save energy and maintain thermal limits. |
+| Security / Networking | Secure and connected operation | Integrates encryption, secure boot, and network protocols. This enables safe communication and data protection, critical for IoT and mobile applications. |
+| Clocking (PLL/Clock Trees) | Synchronization backbone  | Provides a stable clock signal to coordinate all components. PLLs generate multiple frequencies and reduce timing errors, ensuring coherent system operation. |
+| Peripherals / Accelerators | Task-specific enhancements | Includes ADCs, DACs, video encoders, and cryptography engines. These blocks offload specific tasks from the CPU, improving efficiency without adding complexity to the main processor. |
+
 
 ---
 
