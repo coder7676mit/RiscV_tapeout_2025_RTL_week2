@@ -214,17 +214,14 @@ images  LICENSE  Makefile  output  README.md  sandpiper_gen.vh  sandpiper.vh  sp
 ```bash
 yosys> read_verilog -I ~/VLSI/VSDBabySoC/src/include/ ~/VLSI/VSDBabySoC/src/module/rvmyth.v
 ```
- ![Alt Text](Images/2.jpg)
+
 
 #### ❗Note:
 
 _If you try to read the rvmyth.v file using yosys without copying the necessary header files first, you may encounter errors like:_
 
-![Alt Text](Images/err1.jpeg)
+![Alt Text](error.png)
 
-![Alt Text](Images/err2.jpeg)
-
-![Alt Text](Images/err3.jpeg)
 
 _To avoid these errors, make sure to copy the required include files into your working directory! This ensures Yosys can resolve them correctly during parsing, even if the -I option is used._
 
@@ -234,7 +231,6 @@ _To avoid these errors, make sure to copy the required include files into your w
 yosys> read_verilog -I ~/VLSI/VSDBabySoC/src/include/ ~/VLSI/VSDBabySoC/src/module/clk_gate.v
 ```
 
- ![Alt Text](Images/3.jpg)
 
  ### **Step 2: Load the Liberty Files for Synthesis**
 Inside the same yosys shell, run:
@@ -243,7 +239,7 @@ yosys> read_liberty -lib ~/VLSI/VSDBabySoC/src/lib/avsdpll.lib
 yosys> read_liberty -lib ~/VLSI/VSDBabySoC/src/lib/avsddac.lib 
 yosys> read_liberty -lib ~/VLSI/VSDBabySoC/src/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 ```
-![Alt Text](Images/4.jpg)
+![Alt Text](yosys_syntax.png)
 
 ### **Step 3: Run Synthesis Targeting `vsdbabysoc`**
 ```bash
@@ -256,7 +252,7 @@ yosys> synth -top vsdbabysoc
 ```bash
 yosys> dfflibmap -liberty ~/VLSI/VSDBabySoC/src/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 ```
-![Alt Text](Images/11.jpg)
+![Alt Text](dff_libmap.png)
 
 ### **Step 5: Perform Optimization and Technology Mapping**
 ```bash
@@ -275,9 +271,8 @@ yosys> abc -liberty ~/VLSI/VSDBabySoC/src/lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
 | `map,-M,1,{D}` | Map logic to gates minimizing area (`-M,1`) and retime-aware (`{D}`) |
 
 
-![Alt Text](Images/7.jpg)
+![Alt Text](optimization.png)
 
-![Alt Text](Images/12.jpg)
 
 ### **Step 6: Perform Final Clean-Up and Renaming**
 
@@ -294,7 +289,9 @@ yosys> rename -enumerate
 | `clean -purge`      | Removes all unused wires, cells, and modules; `-purge` makes it more aggressive.       |
 | `rename -enumerate` | Renames internal wires and cells to unique, numbered names for consistency.            |
 
-![Alt Text](Images/13.jpg)
+
+![Alt Text](clean.png)
+
 
 ### **Step 7: Check Statistics**
 ```bash
