@@ -20,16 +20,16 @@ VSDBabySoC/
 To begin, clone the VSDBabySoC repository using the following command:
 
 ```bash
-cd ~/VLSI
+
 
 git clone https://github.com/manili/VSDBabySoC.git
 
-cd ~/VLSI/VSDBabySoC/
+cd ~/VSDBabySoC/
 
-spatha@spatha-VirtualBox:~/VLSI$ ls VSDBabySoC/
+nagendrakudva123@nagendrakudva123-VirtualBox:~/VLSI$ ls VSDBabySoC/
 images  LICENSE  Makefile  README.md  src
 
-spatha@spatha-VirtualBox:~/VLSI$ ls VSDBabySoC/src/module/
+nagendrakudva123@nagendrakudva123-VirtualBox:~/VLSI$ ls VSDBabySoC/src/module/
 avsddac.v  avsdpll.v  clk_gate.v  pseudo_rand_gen.sv  pseudo_rand.sv  rvmyth_gen.v  rvmyth.tlv  rvmyth.v  testbench.rvmyth.post-routing.v  testbench.v  vsdbabysoc.v
 ```
 ### TLV to Verilog Conversion for RVMYTH
@@ -46,7 +46,7 @@ sudo apt update
 sudo apt install python3-venv python3-pip
 
 # Step 2: Create and activate a virtual environment
-cd ~/VLSI/VSDBabySoC/
+cd ~/VSDBabySoC/
 python3 -m venv sp_env
 source sp_env/bin/activate
 
@@ -63,19 +63,19 @@ sandpiper-saas -i ./src/module/*.tlv -o rvmyth.v --bestsv --noline -p verilog --
 You can confirm this by listing the files:
 
 ```bash
-spatha@spatha-VirtualBox:~$ cd VLSI/VSDBabySoC/
-spatha@spatha-VirtualBox:~/VLSI/VSDBabySoC$ ls src/module/
+nagendrakudva123@nagendrakudva123-VirtualBox:~$ cd VLSI/VSDBabySoC/
+nagendrakudva123@nagendrakudva123-VirtualBox:~/VSDBabySoC$ ls src/module/
 avsddac.v  avsdpll.v  clk_gate.v  pseudo_rand_gen.sv  pseudo_rand.sv  rvmyth_gen.v  rvmyth.tlv  rvmyth.v  testbench.rvmyth.post-routing.v  testbench.v  vsdbabysoc.v
 ```
 
 #### Note 
 To use this environment in future sessions, always activate it first:
 ```bash
-spatha@spatha-VirtualBox:~$ source sp_env/bin/activate
+nagendrakudva123@nagendrakudva123-VirtualBox:~$ source sp_env/bin/activate
 ```
 To exit:
 ```bash
-spatha@spatha-VirtualBox:~$ deactivate
+nagendrakudva123@nagendrakudva123-VirtualBox:~$ deactivate
 ```
 
 ### Simulation Steps
@@ -85,11 +85,11 @@ spatha@spatha-VirtualBox:~$ deactivate
 Run the following command to perform a pre-synthesis simulation:
 
 ```bash
-cd ~/VLSI/VSDBabySoC/
+cd ~/VSDBabySoC/
 
 mkdir -p output/pre_synth_sim
 
-iverilog -o ~/VLSI/VSDBabySoC/output/pre_synth_sim/pre_synth_sim.out -DPRE_SYNTH_SIM -I ~/VLSI/VSDBabySoC/src/include -I ~/VLSI/VSDBabySoC/src/module ~/VLSI/VSDBabySoC/src/module/testbench.v
+iverilog -o ~/VSDBabySoC/output/pre_synth_sim/pre_synth_sim.out -DPRE_SYNTH_SIM -I ~/VSDBabySoC/src/include -I ~/VSDBabySoC/src/module ~/VSDBabySoC/src/module/testbench.v
 ```
 
 Then run:
@@ -110,7 +110,7 @@ After running the simulation, open the VCD file in GTKWave:
 
 ```bash
 
-cd ~/VLSI/VSDBabySoC/
+cd ~/VSDBabySoC/
 
 gtkwave output/pre_synth_sim/pre_synth_sim.vcd
 
@@ -183,7 +183,7 @@ Here is the step-by-step execution plan for running the  commands manually:
 ### **Step 1: Load the Top-Level Design and Supporting Modules**
 - Launch the yosys synthesis tool from your working directory.
 ```bash
-spatha@spatha-VirtualBox:~/VLSI/VSDBabySoC$ yosys
+nagendrakudva123@nagendrakudva123-VirtualBox:~/VSDBabySoC$ yosys
 ```
 
  
@@ -202,17 +202,17 @@ yosys> read_verilog src/module/vsdbabysoc.v
   **sandpiper_gen.vh** – may include auto-generated or tool-generated parameters
 
 ```bash
-patha@spatha-VirtualBox:~$ cd ~/VLSI/VSDBabySoC
-patha@spatha-VirtualBox:~/VLSI/VSDBabySoC$ cp -r src/include/sp_verilog.vh .
-patha@spatha-VirtualBox:~/VLSI/VSDBabySoC$ cp -r src/include/sandpiper.vh .
-patha@spatha-VirtualBox:~/VLSI/VSDBabySoC$ cp -r src/include/sandpiper_gen.vh .
-patha@spatha-VirtualBox:~/VLSI/VSDBabySoC$ ls
+nagendrakudva123@nagendrakudva123-VirtualBox:~$ cd ~/VSDBabySoC
+nagendrakudva123@nagendrakudva123-VirtualBox:~/VSDBabySoC$ cp -r src/include/sp_verilog.vh .
+nagendrakudva123@nagendrakudva123-VirtualBox:~/VSDBabySoC$ cp -r src/include/sandpiper.vh .
+nagendrakudva123@nagendrakudva123-VirtualBox:~/VSDBabySoC$ cp -r src/include/sandpiper_gen.vh .
+nagendrakudva123@nagendrakudva123-VirtualBox:~/VSDBabySoC$ ls
 images  LICENSE  Makefile  output  README.md  sandpiper_gen.vh  sandpiper.vh  sp_env  sp_verilog.vh  src
 ```
 
 - Read the rvmyth.v file with the include path using -I option.
 ```bash
-yosys> read_verilog -I ~/VLSI/VSDBabySoC/src/include/ ~/VLSI/VSDBabySoC/src/module/rvmyth.v
+yosys> read_verilog -I ~/VSDBabySoC/src/include/ ~/VSDBabySoC/src/module/rvmyth.v
 ```
 
 
@@ -228,16 +228,16 @@ _To avoid these errors, make sure to copy the required include files into your w
 - Read the clk_gate.v file with the include path using -I option.
   
 ```bash
-yosys> read_verilog -I ~/VLSI/VSDBabySoC/src/include/ ~/VLSI/VSDBabySoC/src/module/clk_gate.v
+yosys> read_verilog -I ~/VSDBabySoC/src/include/ ~/VSDBabySoC/src/module/clk_gate.v
 ```
 
 
  ### **Step 2: Load the Liberty Files for Synthesis**
 Inside the same yosys shell, run:
 ```bash
-yosys> read_liberty -lib ~/VLSI/VSDBabySoC/src/lib/avsdpll.lib 
-yosys> read_liberty -lib ~/VLSI/VSDBabySoC/src/lib/avsddac.lib 
-yosys> read_liberty -lib ~/VLSI/VSDBabySoC/src/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+yosys> read_liberty -lib ~/VSDBabySoC/src/lib/avsdpll.lib 
+yosys> read_liberty -lib ~/VSDBabySoC/src/lib/avsddac.lib 
+yosys> read_liberty -lib ~/VSDBabySoC/src/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 ```
 ![Alt Text](yosys_synth.png)
 
@@ -251,14 +251,14 @@ yosys> synth -top vsdbabysoc
 ### **Step 4: Map D Flip-Flops to Standard Cells**
 
 ```bash
-yosys> dfflibmap -liberty ~/VLSI/VSDBabySoC/src/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+yosys> dfflibmap -liberty ~/VSDBabySoC/src/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 ```
 ![Alt Text](dfflib_map.png)
 
 ### **Step 5: Perform Optimization and Technology Mapping**
 ```bash
 yosys> opt
-yosys> abc -liberty ~/VLSI/VSDBabySoC/src/lib/sky130_fd_sc_hd__tt_025C_1v80.lib -script +strash;scorr;ifraig;retime;{D};strash;dch,-f;map,-M,1,{D}
+yosys> abc -liberty ~/VSDBabySoC/src/lib/sky130_fd_sc_hd__tt_025C_1v80.lib -script +strash;scorr;ifraig;retime;{D};strash;dch,-f;map,-M,1,{D}
 ```
 
 | Step           | Purpose                                                              |
@@ -386,7 +386,7 @@ yosys> stat
 ### **Step 9: Write the Synthesized Netlist**
 ```bash
 
-yosys> write_verilog -noattr ~/VLSI/VSDBabySoC/output/post_synth_sim/vsdbabysoc.synth.v
+yosys> write_verilog -noattr ~/VSDBabySoC/output/post_synth_sim/vsdbabysoc.synth.v
 ```
 
 
@@ -399,34 +399,34 @@ Before running the iverilog command, copy the necessary standard cell and primit
 These files must be present in the same directory as the testbench (src/module) to resolve all module references during compilation.
 
 ```bash
-spatha@spatha-VirtualBox:~/VLSI/VSDBabySoC/src/module$ cp -r ~/VLSI/sky130RTLDesignAndSynthesisWorkshop/my_lib/verilog_model/sky130_fd_sc_hd.v .
-spatha@spatha-VirtualBox:~/VLSI/VSDBabySoC/src/module$ cp -r ~/VLSI/sky130RTLDesignAndSynthesisWorkshop/my_lib/verilog_model/primitives.v .
+nagendrakudva123@nagendrakudva123-VirtualBox:~/VSDBabySoC/src/module$ cp -r ~/sky130RTLDesignAndSynthesisWorkshop/my_lib/verilog_model/sky130_fd_sc_hd.v .
+nagendrakudva123@nagendrakudva123-VirtualBox:~/VSDBabySoC/src/module$ cp -r ~/sky130RTLDesignAndSynthesisWorkshop/my_lib/verilog_model/primitives.v .
 ```
 
 To ensure that the synthesized Verilog file _(vsdbabysoc.synth.v)_ is available in the src/module directory for further processing or simulation, you can copy it from the output directory to the src/module directory. Here is the step to do that:
 ```bash
-spatha@spatha-VirtualBox:~/VLSI/VSDBabySoC$ cp -r ~/VLSI/VSDBabySoC/output/post_synth_sim/vsdbabysoc.synth.v ~/VLSI/VSDBabySoC/src/module/
+nagendrakudva123@nagendrakudva123-VirtualBox:~/VSDBabySoC$ cp -r ~/VSDBabySoC/output/post_synth_sim/vsdbabysoc.synth.v ~/VSDBabySoC/src/module/
 ```
 
 Run the following `iverilog` command to compile the testbench:
 ```bash
-spatha@spatha-VirtualBox:~/VLSI/VSDBabySoC$ iverilog -o /home/spatha/VLSI/VSDBabySoC/output/post_synth_sim/post_synth_sim.out -DPOST_SYNTH_SIM -DFUNCTIONAL -DUNIT_DELAY=#1 -I /home/spatha/VLSI/VSDBabySoC/src/include -I /home/spatha/VLSI/VSDBabySoC/src/module /home/spatha/VLSI/VSDBabySoC/src/module/testbench.v
+nagendrakudva123@nagendrakudva123-VirtualBox:~/VSDBabySoC$ iverilog -o ~/VSDBabySoC/output/post_synth_sim/post_synth_sim.out -DPOST_SYNTH_SIM -DFUNCTIONAL -DUNIT_DELAY=#1 -I ~/VSDBabySoC/src/include -I ~/VSDBabySoC/src/module ~/VSDBabySoC/src/module/testbench.v
 ```
 | **Option / Argument**                                                      | **Purpose / Description**                                                            |
 | -------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
 | `iverilog`                                                                 | Icarus Verilog compiler used to compile Verilog files into a simulation executable.  |
-| `-o /home/spatha/VLSI/VSDBabySoC/output/post_synth_sim/post_synth_sim.out` | Specifies the output binary file for simulation.                                     |
+| `-o ~/VSDBabySoC/output/post_synth_sim/post_synth_sim.out` | Specifies the output binary file for simulation.                                     |
 | `-DPOST_SYNTH_SIM`                                                         | Defines the macro `POST_SYNTH_SIM` (used in testbench to switch simulation modes).   |
 | `-DFUNCTIONAL`                                                             | Defines `FUNCTIONAL` to use behavioral models instead of detailed gate-level timing. |
 | `-DUNIT_DELAY=#1`                                                          | Assigns a unit delay of `#1` to all gates for post-synthesis simulation.             |
-| `-I /home/spatha/VLSI/VSDBabySoC/src/include`                              | Adds the `include` directory to the search path for `\`include\` directives.         |
-| `-I /home/spatha/VLSI/VSDBabySoC/src/module`                               | Adds the `module` directory to the include path for additional module references.    |
-| `/home/spatha/VLSI/VSDBabySoC/src/module/testbench.v`                      | Specifies the testbench file as the top-level design for simulation.                 |
+| `-I ~/VSDBabySoC/src/include`                              | Adds the `include` directory to the search path for `\`include\` directives.         |
+| `-I ~/VSDBabySoC/src/module`                               | Adds the `module` directory to the include path for additional module references.    |
+| `~/VSDBabySoC/src/module/testbench.v`                      | Specifies the testbench file as the top-level design for simulation.                 |
 
 #### ❗Note - You may encounter this error:
 ```bash
-spatha@spatha-VirtualBox:~/VLSI/VSDBabySoC$ iverilog -o /home/spatha/VLSI/VSDBabySoC/output/post_synth_sim/post_synth_sim.out -DPOST_SYNTH_SIM -DFUNCTIONAL -DUNIT_DELAY=#1 -I /home/spatha/VLSI/VSDBabySoC/src/include -I /home/spatha/VLSI/VSDBabySoC/src/module /home/spatha/VLSI/VSDBabySoC/src/module/testbench.v
-/home/spatha/VLSI/VSDBabySoC/src/module/sky130_fd_sc_hd.v:74452: syntax error
+nagendrakudva123@nagendrakudva123-VirtualBox:~/VSDBabySoC$ iverilog -o ~/VSDBabySoC/output/post_synth_sim/post_synth_sim.out -DPOST_SYNTH_SIM -DFUNCTIONAL -DUNIT_DELAY=#1 -I ~/VSDBabySoC/src/include -I ~/VSDBabySoC/src/module ~/VSDBabySoC/src/module/testbench.v
+~/VSDBabySoC/src/module/sky130_fd_sc_hd.v:74452: syntax error
 I give up.
 ```
 _To resolve this : Update the syntax in the file sky130_fd_sc_hd.v at or around line 74452._
