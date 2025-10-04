@@ -58,6 +58,9 @@ SoCs are used in a wide range of applications, including smartphones, tablets, s
 
 While SoCs offer many benefits, they also introduce design challenges. The integration of heterogeneous components into one die requires highly complex design and verification. As these chips are extremely compact, they generate significant amounts of heat, making thermal management difficult. Fabrication at advanced process nodes is also expensive, and once manufactured, an SoC has limited flexibility since post-fabrication modifications are nearly impossible.  
 
+![Apple-M1-Architecture-1024x475](https://github.com/user-attachments/assets/a3428bc5-1ddd-4bdc-b3a6-10a74205c8d8)
+
+
 ---
 
 ## SoC Architectures  
@@ -74,7 +77,10 @@ While SoCs offer many benefits, they also introduce design challenges. The integ
 
 The SoC design process begins with specification, where the performance, area, and power requirements are defined. This is followed by architectural design, which partitions the system into processor cores, memory subsystems, and I/O. Once the architecture is finalized, RTL coding in hardware description languages such as Verilog or VHDL is carried out. The RTL is then simulated to verify logical correctness before moving into synthesis, where it is transformed into a gate-level netlist.
 
-The design then proceeds through physical design, including placement, routing, and clock tree synthesis. After sign-off checks are complete, the chip is sent for fabrication at a semiconductor foundry. Once manufactured, validation and bring-up are carried out on silicon to ensure the chip functions as intended.  
+The design then proceeds through physical design, including placement, routing, and clock tree synthesis. After sign-off checks are complete, the chip is sent for fabrication at a semiconductor foundry. Once manufactured, validation and bring-up are carried out on silicon to ensure the chip functions as intended. 
+
+![img_61d89021d8d47 copy](https://github.com/user-attachments/assets/54b5e8f9-f03d-4b53-a535-859360589119)
+
 
 ---
 
