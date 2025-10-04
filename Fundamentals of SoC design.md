@@ -117,6 +117,7 @@ The BabySoC operates in three main stages. First, the PLL generates a stable and
 A phase-locked loop is a closed-loop control system that generates a clock signal synchronized with a reference input. It consists of a phase detector to compare the reference and feedback signals, a loop filter to generate a smooth control voltage, and a voltage-controlled oscillator that adjusts its frequency accordingly. Often, a divider is also used to produce multiples or fractions of the reference frequency.  
 
 **Block Diagram**
+
 ![alt](https://hosturl.site/srfclM)
 
 A PLL typically consists of three main components:
