@@ -116,13 +116,41 @@ The BabySoC operates in three main stages. First, the PLL generates a stable and
 
 A phase-locked loop is a closed-loop control system that generates a clock signal synchronized with a reference input. It consists of a phase detector to compare the reference and feedback signals, a loop filter to generate a smooth control voltage, and a voltage-controlled oscillator that adjusts its frequency accordingly. Often, a divider is also used to produce multiples or fractions of the reference frequency.  
 
-PLLs are essential in SoCs because they ensure that each subsystem receives a stable clock signal. They also allow on-chip generation of different clock frequencies without relying on external oscillators, which may introduce jitter and delay.  
+**Block Diagram**
+![alt](https://hosturl.site/srfclM)
 
+A PLL typically consists of three main components:
+   - **Phase Detector:** Compares the input signal (reference) with the output signal from the oscillator and generates an error signal based on the phase difference.
+   - **Loop Filter:** Usually a low-pass filter that processes the error signal to produce a control voltage.
+   - **Voltage-Controlled Oscillator (VCO):** Adjusts its frequency based on the control voltage to match the input frequency.
+   
+
+ 
+**Why Can’t Off-Chip Clocks Always Be Used?**
+
+   1. Clock Distribution Delays:
+      - Using a single clock source for an entire chip can lead to delays due to long wiring distances, which can affect timing.
+   2. Clock Jitter:
+      - Off-chip clocks may experience variations in signal timing, known as jitter, which can disrupt synchronization.
+   3. Different Frequency Requirements:
+      - Various blocks within the same chip may require different clock frequencies. For example, one block might need 200 MHz while another needs 100 MHz.
+   4. Crystal Frequency Deviations:
+      - When quartz crystals are used as clock sources, they come with a frequency error measured in parts per million (ppm).
+      - A higher ppm error means that the frequency can deviate more from the desired value, affecting timing precision.
+   5. Frequency Stability:
+      - The stability of a crystal’s frequency can vary with temperature. Crystals with higher ppm errors are more likely to exhibit larger frequency variations when temperature changes.
+   6. Total Frequency Error:
+      - The overall frequency error of a crystal includes contributions from:
+         - Frequency Tolerance: The initial error in frequency.
+         - Frequency Stability: Variation over temperature.
+         - Aging: Changes in frequency over time.
 ---
 
 ### Digital-to-Analog Converter (DAC)  
 
 A digital-to-analog converter translates binary input values into continuous analog signals. In BabySoC, the DAC has a 10-bit resolution, meaning it can represent 1024 discrete levels between the minimum and maximum output voltage.  
+
+![alt](https://hosturl.site/3PloR1)
 
 There are several DAC architectures, including the weighted resistor DAC, which is simple but difficult to scale, and the R-2R ladder DAC, which is commonly used for integrated circuits. DACs are crucial in applications such as audio playback, video signal generation, and sensor interfacing, since they allow digital systems to interact with the analog world.  
 
