@@ -88,7 +88,9 @@ The design then proceeds through physical design, including placement, routing, 
 
 ### Overview  
 
-The VSDBabySoC is a compact SoC designed for learning and experimentation. It integrates an RVMYTH RISC-V core, a phase-locked loop for clock generation, and a digital-to-analog converter for analog output. The design is intentionally minimal so that learners can understand the fundamental building blocks of a processor-based SoC without the complexity of a commercial implementation.  
+The VSDBabySoC is a compact SoC designed for learning and experimentation. It integrates an RVMYTH RISC-V core, a phase-locked loop for clock generation, and a digital-to-analog converter for analog output. The design is intentionally minimal so that learners can understand the fundamental building blocks of a processor-based SoC without the complexity of a commercial implementation. 
+
+![alt](https://private-user-images.githubusercontent.com/176678029/381908055-38253bb7-b658-496d-a043-15402219e089.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NTk1NDIyMjcsIm5iZiI6MTc1OTU0MTkyNywicGF0aCI6Ii8xNzY2NzgwMjkvMzgxOTA4MDU1LTM4MjUzYmI3LWI2NTgtNDk2ZC1hMDQzLTE1NDAyMjE5ZTA4OS5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUxMDA0JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MTAwNFQwMTM4NDdaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1hNGE1M2U4ZDk4OTI4OWVmZWU2NWUzM2MxMTAzMjJiZTVkYjI5MWRhODc5YzFjOTViNDQ3NTg0OGRiNTYwMTFmJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.Ph0LGy-3zzv2mWMSCtEcT8RS5oBPOd8v64xKQbV0olc)
 
 ---
 
