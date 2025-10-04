@@ -118,7 +118,7 @@ A phase-locked loop is a closed-loop control system that generates a clock signa
 
 **Block Diagram**
 
-![alt](https://hosturl.site/srfclM)
+![alt](https://hosturl.site/lnGCum)
 
 A PLL typically consists of three main components:
    - **Phase Detector:** Compares the input signal (reference) with the output signal from the oscillator and generates an error signal based on the phase difference.
