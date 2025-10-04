@@ -26,10 +26,10 @@ git clone https://github.com/manili/VSDBabySoC.git
 
 cd ~/VSDBabySoC/
 
-nagendrakudva123@nagendrakudva123-VirtualBox:~/VLSI$ ls VSDBabySoC/
+nagendrakudva123@nagendrakudva123-VirtualBox:~$ ls VSDBabySoC/
 images  LICENSE  Makefile  README.md  src
 
-nagendrakudva123@nagendrakudva123-VirtualBox:~/VLSI$ ls VSDBabySoC/src/module/
+nagendrakudva123@nagendrakudva123-VirtualBox:~$ ls VSDBabySoC/src/module/
 avsddac.v  avsdpll.v  clk_gate.v  pseudo_rand_gen.sv  pseudo_rand.sv  rvmyth_gen.v  rvmyth.tlv  rvmyth.v  testbench.rvmyth.post-routing.v  testbench.v  vsdbabysoc.v
 ```
 ### TLV to Verilog Conversion for RVMYTH
